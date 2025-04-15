@@ -4,6 +4,10 @@ import cv2
 import requests
 import shutil
 from moviepy.editor import VideoFileClip, AudioFileClip
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 def buscar_imagens_do_dia(pasta):
     hoje = datetime.now().date()
@@ -80,14 +84,14 @@ def mover_imagens(imagens, destino_base):
         shutil.move(img, destino / Path(img).name)
 
 def main():
-    pasta_imagens = "/caminho/imagens"
-    destino_video_raw = "/tmp/timelapse_raw.mp4"
-    trilha_audio = "/caminho/audio.mp3"
-    destino_video_final = "/caminho/final/timelapse_com_audio.mp4"
-    logo_esquerda = "/caminho/logo_esq.png"
-    logo_direita = "/caminho/logo_dir.png"
-    destino_arquivos = "/caminho/imagens_processadas"
-    url_api = "https://suaapi.com/upload"
+    pasta_imagens = os.getenv("PASTA_IMAGENS")
+    destino_video_raw = os.getenv("DESTINO_VIDEO_RAW")
+    trilha_audio = os.getenv("TRILHA_AUDIO")
+    destino_video_final = os.getenv("DESTINO_VIDEO_FINAL")
+    logo_esquerda = os.getenv("LOGO_ESQUERDA")
+    logo_direita = os.getenv("LOGO_DIREITA")
+    destino_arquivos = os.getenv("DESTINO_ARQUIVOS")
+    url_api = os.getenv("URL_API")
 
     imagens = buscar_imagens_do_dia(pasta_imagens)
     if not imagens:
@@ -101,6 +105,3 @@ def main():
     print(f"Status do upload: {status}")
 
     mover_imagens(imagens, destino_arquivos)
-
-if __name__ == "__main__":
-    main()

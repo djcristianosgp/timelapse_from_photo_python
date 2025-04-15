@@ -7,3 +7,4 @@ timelapse-app/
 ├── logo_esq.png          # Logo da esquerda
 ├── logo_dir.png          # Logo da direita
 └── imagens/              # Pasta com as imagens do dia
+

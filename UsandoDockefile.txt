@@ -1,0 +1,2 @@
+docker build -t timelapse-app .
+docker run --rm -v "$(pwd):/app" timelapse-app

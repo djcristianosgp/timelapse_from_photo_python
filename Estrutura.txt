@@ -1,0 +1,9 @@
+timelapse-app/
+├── app.py                # Seu script principal
+├── requirements.txt      # Dependências Python
+├── setup.sh              # Instalador automático
+├── Dockerfile            # Ambiente Docker
+├── audio.mp3             # Sua trilha sonora
+├── logo_esq.png          # Logo da esquerda
+├── logo_dir.png          # Logo da direita
+└── imagens/              # Pasta com as imagens do dia
